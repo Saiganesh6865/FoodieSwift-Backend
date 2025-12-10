@@ -1,0 +1,133 @@
+{
+  "info": {
+    "name": "MiniPay Demo Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\": \"Demo Merchant\", \"email\": \"merchant@example.com\", \"password\": \"password123\", \"role\":\"merchant\" }"
+        },
+        "url": {
+          "raw": "{{base_url}}/auth/register",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "auth",
+            "register"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"email\": \"merchant@example.com\", \"password\": \"password123\" }"
+        },
+        "url": {
+          "raw": "{{base_url}}/auth/login",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Merchant",
+      "request": {
+        "method": "POST",
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"user_id\": 1, \"business_name\": \"Demo Shop\" }"
+        },
+        "url": {
+          "raw": "{{base_url}}/merchant/create",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "merchant",
+            "create"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Upload KYC",
+      "request": {
+        "method": "POST",
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"merchant_id\": 1, \"pan_no\": \"ABCDE1234F\", \"gst_no\": \"22AAAAA0000A1Z5\", \"bank_account\": \"1234567890\" }"
+        },
+        "url": {
+          "raw": "{{base_url}}/merchant/kyc/upload",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "merchant",
+            "kyc",
+            "upload"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Razorpay Order",
+      "request": {
+        "method": "POST",
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"amount\": 500, \"merchant_id\": 1 }"
+        },
+        "url": {
+          "raw": "{{base_url}}/razorpay/create-order",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "razorpay",
+            "create-order"
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Transactions",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/transaction/list/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "transaction",
+            "list",
+            "1"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    }
+  ]
+}
