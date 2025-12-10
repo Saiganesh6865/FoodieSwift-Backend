@@ -8,3 +8,4 @@ razorpay
 python-multipart
 email-validator
 requests
+python-dotenv
